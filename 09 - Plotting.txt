@@ -1,0 +1,33 @@
+def zeitungsplot(df, plot_titel):
+    df = df[df["Einrichtung"] == "DE-3"]
+    
+    jahrgangsplot = df["Bestand"].value_counts()
+
+    a = [x for x in range(1850, 1990,1)]
+    b = []
+    
+    for i in a:
+        if i not in jahrgangsplot.index:
+            b.append(i)
+
+    filler = pd.Series(0, index=b)
+    jahrgangsplot = pd.concat([jahrgangsplot, filler])
+    jahrgangsplot = jahrgangsplot.sort_index()
+    jahrgangsplot.index = jahrgangsplot.index.astype("int")
+
+    plt.figure(figsize=(13,10)) 
+    barplot = jahrgangsplot.plot.bar()
+
+    #Beschriftung der X-Achse in Abständen von fünf Jahren
+    for i, j in enumerate(barplot.get_xticklabels()):
+        if (i % 5) != 0:        
+            j.set_visible(False)
+
+    plt.title(plot_titel)
+    plt.xlabel("Jahrgang")
+    plt.ylabel("Menge")
+    
+    #plt.savefig("Plot_Zeitungsbestand.png")
+    #plt.savefig("Plot_Zeitungsbestand.pdf") 
+    #plt.savefig("Plot_Zeitungsbestand.svg") 
+    #plt.savefig("Plot_Zeitungsbestand.tiff")

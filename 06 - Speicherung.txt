@@ -1,0 +1,6 @@
+main_df = pd.concat(df_liste, ignore_index=True)
+
+#main_df.to_excel("sru_abfrage.xlsx")
+#main_df.to_csv("sru_abfrage.csv")
+
+print(main_df)
