@@ -95,6 +95,6 @@ def parse_record(record):
             except:
                 bestand = [""]
 
-            data_list.append([idn, titel, ort, frequenz, verlauf, einrichtung, signatur, jahr, material])
+            data_list.append([idn, titel, ort, frequenz, verlauf, einrichtung, signatur, bestand, material])
             
     return data_list
