@@ -1,4 +1,0 @@
-df_unikal = unikalcheck(main_df)
-
-zeitungsplot(main_df, "Zeitungsbestand (gesamt)")
-zeitungsplot(df_unikal, "Zeitungsbestand (unikal)")

@@ -1,8 +1,0 @@
-def unikalcheck(df):
-        df_dedup = df.drop_duplicates(subset=["Titel", "Bestand"], keep=False)
-        
-        df_unikal = df_dedup[df_dedup["Einrichtung"] == "DE-3"]
-                        
-        #df_unikal.to_csv("unikal.csv")
-        
-        return df_unikal
